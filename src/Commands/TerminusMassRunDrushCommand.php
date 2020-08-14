@@ -34,6 +34,7 @@ class TerminusMassRunDrushCommand extends DrushCommand implements SiteAwareInter
 
     foreach ($sites as $site) {
       try {
+        $this->log()->notice("Running drush command for {$site->getName()}.{$options['env']}");
         $output .= $this->drushCommand("{$site->getName()}.{$options['env']}", $cmd);
       }
       catch (TerminusProcessException $e) {

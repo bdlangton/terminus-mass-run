@@ -34,6 +34,7 @@ class TerminusMassRunConnectionSetCommand extends SetCommand implements SiteAwar
 
     foreach ($sites as $site) {
       try {
+        $this->log()->notice("Setting site connection mode for {$site->getName()}.{$options['env']}");
         $output .= $this->connectionSet("{$site->getName()}.{$options['env']}", $mode);
       }
       catch (TerminusException $e) {

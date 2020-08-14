@@ -60,6 +60,7 @@ class TerminusMassRunEnvDeployCommand extends DeployCommand implements SiteAware
       }
 
       try {
+        $this->log()->notice("Deploying code for {$site->getName()}.{$options['env']}");
         $output .= $this->deploy("{$site->getName()}.{$options['env']}", $options);
       }
       catch (TerminusException $e) {

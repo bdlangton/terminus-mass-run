@@ -31,6 +31,7 @@ class TerminusMassRunUpstreamCacheClearCommand extends ClearCacheCommand impleme
     $sites = $this->filterFrameworks($this->getAllSites($options['upstream']), ['drupal', 'drupal8']);
 
     foreach ($sites as $site) {
+      $this->log()->notice("Clearing cache for {$site->getName()}.{$options['env']}");
       $output .= $this->clearCache($site->getName());
     }
 
